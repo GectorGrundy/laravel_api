@@ -1,0 +1,33 @@
+Запросы отправляем методом GET или POST
+
+2. Обязательные параметры
+~~
+'token' - Токен вебмастера, можно получить в интерфейсе вебмастера
+'offer_id' - Id офферв
+'name' - Имя в заказе
+'phone' - Телефон в заказе
+'country' - Двубуквенный код страны (DE, IT и тд)
+'ip' - Ip адрес пользователя который совершил заявку
+~~
+
+3. Необязательные параметры
+~~
+'utm_source' - utm_source или Id потока
+'utm_medium' - Utm Medium
+'utm_campaign' - Utm Campaign
+'utm_content' - Utm Content
+'utm_term' - Utm Term
+~~
+
+4. Пример запроса для создания заявки
+~~
+http://api.webvork.com/v1/new-lead?token=aca455be61a4c1dc8019a735851a40db&ip=93.159.233.130&offer_id=1&name=test&phone=test&country=AT
+~~
+
+5. В случае успешного запроса возвращаем
+~~~ {"status":"ok","guid":"B4778839-7F25-BD76-C65C-F8D9D6F41D4C"}
+~~~
+
+6. Если ошибка то отдаем
+~~~ {"status":"error","msg":"empty token"}
+~~~

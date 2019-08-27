@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'address'                       => 'Alamat',
+    'choose_country'                => 'Pilih negara',
+    'correct_thanks_top_message'    => 'Anda mungkin melakukan kesalahan saat memasukkan nomor telepon. Tolong periksa kembali.',
+    'country'                       => 'Negara',
+    'edit'                          => 'Ubah',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Masukan alamat pengiriman',
+    'fill_in_form'                  => 'lengkapi formulir ini sekali lagi',
+    'for_receiving_special_offers'  => 'Untuk mendapatkan penawaran khusus silakan masukan alamat email',
+    'incorrect_email_msg'           => 'Silakan masukkan email',
+    'incorrect_name_msg'            => 'Silakan masukkan nama Anda',
+    'incorrect_phone_number_msg'    => 'Silakan masukkan nomor telepon',
+    'incorrect_target_geo_msg'      => 'Silakan pilih negara pengiriman',
+    'is_you_made_a_mistake'         => 'Jika Anda melakukan kesalahan saat mengisi data ini, maka, silakan,',
+    'name'                          => 'Nama',
+    'name_is_undefined'             => 'Tidak ada nama',
+    'phone'                         => 'Nomor telepon',
+    'send'                          => 'Kirim',
+    'success_thanks_top_message'    => 'Operator kami akan menghubungi Anda dalam kurun waktu satu hari kerja',
+    'thanks_bottom_message'         => 'Silahkan aktifkan telepon Anda',
+    'title'                         => 'Terima kasih telah berbelanja!',
+    'update_order_data_error'       => 'Pembaharuan data pesanan gagal',
+    'update_order_data_success'     => 'Data pesanan berhasil diperbaharui',
+];

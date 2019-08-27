@@ -1,0 +1,13 @@
+FROM gitlab.hhdev.net:4567/affninja/docker.images/cron:latest
+MAINTAINER itstokey <itstokey@gmail.com>
+
+COPY . /var/www/backend.affninja
+
+RUN rm -rf /var/www/backend.affninja/.git && rm -rf /var/www/backend.affninja/tests
+
+RUN mkdir -p /var/www/backend.affninja/storage/app && chown -R www-data:www-data /var/www/backend.affninja && chmod -R 775 /var/www/backend.affninja
+RUN mkdir -p /var/www/symlinks && chown -R www-data:www-data /var/www/symlinks && chmod -R 775 /var/www/symlinks
+
+WORKDIR /var/www/backend.affninja
+
+CMD ["/usr/bin/supervisord"]

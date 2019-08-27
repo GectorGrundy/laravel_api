@@ -1,0 +1,15 @@
+<?php
+declare(strict_types=1);
+
+return array(
+    array('offer_id' => '1', 'target_id' => '1', 'country_id' => '22', 'payout_currency_id' => '3', 'price_currency_id' => '5', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '21.00', 'price' => '39.00', 'old_price' => '78.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '2', 'country_id' => '19', 'payout_currency_id' => '3', 'price_currency_id' => '5', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '24.00', 'price' => '39.00', 'old_price' => '78.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '3', 'country_id' => '36', 'payout_currency_id' => '3', 'price_currency_id' => '5', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '24.00', 'price' => '39.00', 'old_price' => '78.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '4', 'country_id' => '43', 'payout_currency_id' => '3', 'price_currency_id' => '27', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '18.00', 'price' => '9700.00', 'old_price' => '19400.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '5', 'country_id' => '44', 'payout_currency_id' => '3', 'price_currency_id' => '28', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '16.00', 'price' => '69.00', 'old_price' => '138.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '6', 'country_id' => '45', 'payout_currency_id' => '3', 'price_currency_id' => '29', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '18.00', 'price' => '120.00', 'old_price' => '240.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '7', 'country_id' => '23', 'payout_currency_id' => '3', 'price_currency_id' => '15', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '18.00', 'price' => '129.00', 'old_price' => '258.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '8', 'country_id' => '21', 'payout_currency_id' => '3', 'price_currency_id' => '5', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '16.00', 'price' => '39.00', 'old_price' => '78.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '9', 'country_id' => '18', 'payout_currency_id' => '3', 'price_currency_id' => '35', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '16.00', 'price' => '890.00', 'old_price' => '1780.00', 'hold_time' => '180',),
+    array('offer_id' => '1', 'target_id' => '10', 'country_id' => '33', 'payout_currency_id' => '3', 'price_currency_id' => '5', 'is_default' => '1', 'is_active' => '1', 'target_geo_rule_sort_type' => 'priority', 'payout' => '17.00', 'price' => '39.00', 'old_price' => '78.00', 'hold_time' => '180',),
+);

@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'address'                       => 'Adresa',
+    'choose_country'                => 'Vyberte krajinu',
+    'correct_thanks_top_message'    => 'Možno ste urobili chybu pri zadaní telefónneho čísla. Skontrolujte svoje údaje.',
+    'country'                       => 'Krajina',
+    'edit'                          => 'Uverejniť',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Zadajte dodaciu adresu.',
+    'fill_in_form'                  => 'vyplňte formulár znovu',
+    'for_receiving_special_offers'  => 'Ak chcete získať špeciálne ponuky zadajte Váš e-mail',
+    'incorrect_email_msg'           => 'Prosím zadajte platný email',
+    'incorrect_name_msg'            => 'Prosím zadajte svoje meno',
+    'incorrect_phone_number_msg'    => 'Prosím zadajte platné telefónne číslo',
+    'incorrect_target_geo_msg'      => 'Prosím zadajte odosielaciu krajinu',
+    'is_you_made_a_mistake'         => 'Ak ste pri vyplňovaní tohto formulára urobili chybu, potom, prosím',
+    'name'                          => 'Meno',
+    'name_is_undefined'             => 'Žiadne meno',
+    'phone'                         => 'Telefón',
+    'send'                          => 'Poslať',
+    'success_thanks_top_message'    => 'Náš operátor Vás bude kontaktovať do jedného pracovného dňa.',
+    'thanks_bottom_message'         => 'Prosím zapnite si telefón.',
+    'title'                         => 'Ďakujeme za Vašu objednávku!',
+    'update_order_data_error'       => 'Aktualizácia podrobností objednávky zlyhala',
+    'update_order_data_success'     => 'Detaily objednávky úspešne aktualizované',
+];

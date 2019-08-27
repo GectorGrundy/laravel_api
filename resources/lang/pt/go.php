@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'address'                       => 'Endereço',
+    'choose_country'                => 'Escolha o país',
+    'correct_thanks_top_message'    => 'Talvez você cometeu um engano quando inseria o número de tefone. Cheque seus dados.',
+    'country'                       => 'País',
+    'edit'                          => 'Editar',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Insira o endereço de entrega.',
+    'fill_in_form'                  => 'Complete o formulário novamente',
+    'for_receiving_special_offers'  => 'Para receber propostas especiais por favor, insira sem email',
+    'incorrect_email_msg'           => 'Por favor, insira um email válido',
+    'incorrect_name_msg'            => 'Por favor, indique o seu nome',
+    'incorrect_phone_number_msg'    => 'Por favor, insira um número de telefone válido',
+    'incorrect_target_geo_msg'      => 'Por favor, selecione um país para entrega',
+    'is_you_made_a_mistake'         => 'Se você cometeu um engano enquanto completava este formulário, por favor,',
+    'name'                          => 'Nome',
+    'name_is_undefined'             => 'Sem nome',
+    'phone'                         => 'Telefone',
+    'send'                          => 'Enviar',
+    'success_thanks_top_message'    => 'Nosso operador irá contata-lo dentro de um dia útil.',
+    'thanks_bottom_message'         => 'Por favor ligue seu telefone.',
+    'title'                         => 'Obrigado por comprar!',
+    'update_order_data_error'       => 'Atualização dos detalhes da compra falhou',
+    'update_order_data_success'     => 'Detalhes da compra atualizados com sucesso',
+];

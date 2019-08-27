@@ -1,0 +1,62 @@
+All responses are on JSON format. Please send request with array of required parameters.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+[POST] http://pro-dee.com/api/generate/token
+---------------------------------------------------------------------------------------------------------------------------------------
+First.You need to generate or get a token.
+Name is varchar (255 characters long).
+Secret key which you have to send with request must be exactly 771.
+Both parameters required.
+
+        $response = $this->curl->post('http://pro-dee.com/api/generate/token', [
+            'name' => 'yourwebsiteorcompanyname',
+            'secret_key' => '771'
+        ]);
+
+You'll get :
+
+﻿{"status":"ok","token":"5851128456e23"}
+
+Errors you can get: 
+
+﻿{"status":"invalid secret key"}
+
+---------------------------------------------------------------------------------------------------------------------------------------
+[POST] http://pro-dee.com/api/make/contact
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Now you can connect with our API to save an contact.
+
+        $response = $this->curl->post('http://pro-dee.com/api/make/contact', [
+            'first_name' => 'name',
+            'last_name' => 'lastname',
+            'phone' => '11111111111',
+	    'click_id' => '11111111111'
+            'product' => 'garcinia-cambogia or blackmask or leffery-acr or leffery-pro or hallupro or hergro or teeth', 	
+            'token' => '5851128456e23'
+        ]);
+
+'garcinia-cambogia' is Garcinia Cambogia [TH] [ID: 18] product from http://affbay.asia/products
+'blackmask' is Black Mask [TH] [ID: 19] product from http://affbay.asia/products
+'leffery-acr' is Lefery Anti Aging [TH] [ID: 17] product from http://affbay.asia/products
+
+All parameters are required. first_name, last_name phone and click_id are varchar (255 characters long)
+
+Phone can't be doubled (already detected on our system) and must be from 8 to 14 digits
+
+You'll get : 
+
+﻿{"status":"contact: 617 created", "id":"617"}
+
+617 is a ID of contact on our database.
+
+Errors you can get:
+
+﻿{"status":"token missing"}
+﻿{"status":"client not found, token mismatch"}
+﻿{"status":"required fields missing"}
+﻿{"status":"invalid product name"}
+﻿{"status":"double phone"}
+﻿{"status":"invalid phone format"}
+
+---------------------------------------------------------------------------------------------------------------------------------------

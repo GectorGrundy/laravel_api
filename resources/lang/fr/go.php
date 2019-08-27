@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'address'                       => 'Adresse',
+    'choose_country'                => 'Choisissez le pays',
+    'correct_thanks_top_message'    => 'Peut-être vous avez fait une erreur lorsque vous entrez un numéro de téléphone. Vérifier vos données.',
+    'country'                       => 'Pays',
+    'edit'                          => 'Modifier',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Entrez l’adresse d’expédition.',
+    'fill_in_form'                  => 'remplissez le formulaire une fois de plus',
+    'for_receiving_special_offers'  => 'Pour obtenir des propositions particulières, s’il vous plaît entrer votre adresse e-mail',
+    'incorrect_email_msg'           => 'Veuillez entrer une adresse email valide',
+    'incorrect_name_msg'            => 'Veuillez indiquer votre nom',
+    'incorrect_phone_number_msg'    => 'Veuillez entrer un numéro de téléphone valide',
+    'incorrect_target_geo_msg'      => 'Veuillez sélectionner un pays de livraison',
+    'is_you_made_a_mistake'         => 'Si vous avez fait une erreur en remplissant ce formulaire, s’il vous plaît,',
+    'name'                          => 'Nom',
+    'name_is_undefined'             => 'Pas de nom',
+    'phone'                         => 'Téléphone',
+    'send'                          => 'Envoyer',
+    'success_thanks_top_message'    => 'Notre opérateur vous contactera dans un jour de travail.',
+    'thanks_bottom_message'         => 'S’il vous plaît mettez en marche votre téléphone.',
+    'title'                         => 'Merci de commander!',
+    'update_order_data_error'       => 'Détails de la commande mise à jour a échoué',
+    'update_order_data_success'     => 'Détails de la commande mis à jour',
+];

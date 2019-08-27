@@ -1,0 +1,16 @@
+{
+  "name": "Affninja API docs",
+  "version": "0.1.0",
+  "description": "Description",
+  "title": "Affninja API docs",
+  "url": "http://api.affninja.local",
+  "template": {
+    "forceLanguage": "en",
+    "withCompare": false,
+    "jQueryAjaxSetup": {
+      "data": {
+        "locale": "ru"
+      }
+    }
+  }
+}

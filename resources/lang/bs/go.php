@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'address'                       => 'Adresa',
+    'choose_country'                => 'Izaberite državu',
+    'correct_thanks_top_message'    => 'Možda ste napravili grešku kada ste kucali broj telefona. Proverite vaše podatke.',
+    'country'                       => 'Država',
+    'edit'                          => 'Promena',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Unesite adresu za dostavu.',
+    'fill_in_form'                  => 'popunite obrazac ponovo.',
+    'for_receiving_special_offers'  => 'Za dobijanje posebnih predloga, molimo unesite svoju e-mejl adresu',
+    'incorrect_email_msg'           => 'Molim vas, ukucajte važeću email adresu',
+    'incorrect_name_msg'            => 'Molim vas, navedite svoje ime',
+    'incorrect_phone_number_msg'    => 'Molim vas, ukucajte važeći broj telefona',
+    'incorrect_target_geo_msg'      => 'Molim vas, odaberite zemlju pošiljke',
+    'is_you_made_a_mistake'         => 'Ukoliko ste napravili grešku prilikom popunjavanja ovog obrasca, molim vas,',
+    'name'                          => 'Ime',
+    'name_is_undefined'             => 'Bez imena',
+    'phone'                         => 'Telefon',
+    'send'                          => 'Poslati',
+    'success_thanks_top_message'    => 'Naš operater će vas kontaktirati u roku od jednog dana.',
+    'thanks_bottom_message'         => 'Molim vas, uključite vaš telefon.',
+    'title'                         => 'Hvala vam na porudžbini!',
+    'update_order_data_error'       => 'Ažuriranje porudžbine nije uspjelo.',
+    'update_order_data_success'     => 'Podaci o porudžbini su uspešno ažurirani',
+];

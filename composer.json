@@ -1,0 +1,96 @@
+{
+  "name": "affninja/backend.affninja",
+  "description": "Api for affninja.com",
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Alexander Tychko",
+      "email": "programmerpwnz@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "laravel/framework": "5.5.*",
+    "dingo/api": "1.0.0-beta8",
+    "barryvdh/laravel-cors": "0.11.0",
+    "tymon/jwt-auth": "0.5.*",
+    "fzaninotto/faker": "~1.4",
+    "symfony/css-selector": "3.1.*",
+    "symfony/dom-crawler": "3.1.*",
+    "intervention/image": "^2.3",
+    "doctrine/dbal": "^2.5",
+    "predis/predis": "^1.0",
+    "guzzlehttp/guzzle": "~6.0",
+    "geoip/geoip": "~1.16",
+    "ua-parser/uap-php": "^3.4",
+    "mobiledetect/mobiledetectlib": "^2.8",
+    "geoip2/geoip2": "^2.4",
+    "giggsey/libphonenumber-for-php": "8.0",
+    "symfony/process": "~3.2",
+    "paypal/rest-api-sdk-php": "*",
+    "maatwebsite/excel": "~2.1.0",
+    "sentry/sentry-laravel": "^0.6.1",
+    "rmccue/requests": "^1.7",
+    "albertofem/rsync-lib": "dev-master",
+    "elasticsearch/elasticsearch": "^5.3",
+    "vinkla/hashids": "3.3",
+    "laravel/tinker": "^1.0",
+    "laravel/browser-kit-testing": "^2.0",
+    "laravel/dusk": "^1.1",
+    "sunra/php-simple-html-dom-parser": "^1.5",
+    "vsch/laravel-translation-manager": "^2.5",
+    "laravel/horizon": "^1.2",
+    "fideloper/proxy": "^4.0",
+    "chumper/zipper": "1.0.x"
+  },
+  "require-dev": {
+    "gidkom/ms-translator": "dev-master",
+    "barryvdh/laravel-ide-helper": "^2.4",
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "phpunit/phpunit": "~6.0",
+    "filp/whoops": "~2.0"
+  },
+  "autoload": {
+    "classmap": [
+      "database/seeds",
+      "database/factories",
+      "vendor/sunra/php-simple-html-dom-parser/Src/Sunra/PhpSimple/simplehtmldom_1_5"
+    ],
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "app/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ],
+    "post-install-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postInstall",
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "post-update-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan vendor:publish --provider=\"Vsch\\TranslationManager\\ManagerServiceProvider\" --tag=public"
+    ],
+    "post-autoload-dump": [
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php artisan package:discover"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}

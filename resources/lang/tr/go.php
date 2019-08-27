@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'address'                       => 'Adres',
+    'choose_country'                => 'Teslim ülke',
+    'correct_thanks_top_message'    => 'Telefon numarası girerken bir hata yaptınız olabilir. Bilgilerinizi kontrol ediniz',
+    'country'                       => 'ülke',
+    'edit'                          => 'Düzelmek',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Teslimat adresini girin',
+    'fill_in_form'                  => 'Formu tekrar doldurun',
+    'for_receiving_special_offers'  => 'Özel teklifler için e-posta adresini girin',
+    'incorrect_email_msg'           => 'Geçerli bir email adresi girin',
+    'incorrect_name_msg'            => 'Adınızı girin',
+    'incorrect_phone_number_msg'    => 'Geçerli bir telefon numarası giriniz',
+    'incorrect_target_geo_msg'      => 'Teslimat ülkeyi seçin',
+    'is_you_made_a_mistake'         => 'Formu doldururken bir hata yaptıysanız lütfen düzeltin',
+    'name'                          => 'Adı',
+    'name_is_undefined'             => 'İsimsiz',
+    'phone'                         => 'Telefon',
+    'send'                          => 'Göndermek',
+    'success_thanks_top_message'    => 'Bizim öperatör çalışma saatleri içinde sizinle temasa geçecektir',
+    'thanks_bottom_message'         => 'Telefonunuzu açin lütfen',
+    'title'                         => 'Sipariş için teşekkür ederiz',
+    'update_order_data_error'       => 'Sipariş verilerini güncellenemedi',
+    'update_order_data_success'     => 'Sipariş bilgileri başarıyla güncellendi',
+];

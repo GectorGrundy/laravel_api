@@ -1,0 +1,62 @@
+User-agent: Applebot
+Allow:
+Crawl-delay: 60
+
+User-agent: baiduspider
+Allow:
+Crawl-delay: 60
+
+User-agent: Bingbot
+Allow:
+Crawl-delay: 60
+
+User-agent: Googlebot
+Allow:
+Crawl-delay: 60
+
+User-agent: ia_archiver
+Allow:
+Crawl-delay: 60
+
+User-agent: msnbot
+Allow:
+Crawl-delay: 60
+
+User-agent: Naverbot
+Allow:
+Crawl-delay: 60
+
+User-agent: seznambot
+Allow:
+Crawl-delay: 60
+
+User-agent: Slurp
+Allow:
+Crawl-delay: 60
+
+User-agent: teoma
+Allow:
+Crawl-delay: 60
+
+User-agent: Twitterbot
+Allow:
+Crawl-delay: 60
+
+User-agent: Yandex
+Allow:
+Crawl-delay: 60
+
+User-agent: Yeti
+Allow:
+Crawl-delay: 60
+
+User-agent: Facebot
+Allow:
+Crawl-delay: 60
+
+User-agent: facebookexternalhit
+Allow:
+Crawl-delay: 60
+
+User-agent: *
+Disallow: /

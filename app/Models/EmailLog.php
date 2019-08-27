@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+
+namespace App\Models;
+
+class EmailLog extends AbstractEntity
+{
+    protected $fillable = [
+        'entity_id', 'entity_type', 'type', 'html'
+    ];
+}

@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'address'                       => 'Lakcím',
+    'choose_country'                => 'Válassza ki az országot',
+    'correct_thanks_top_message'    => 'Lehet tévedett amikor beírta a telefonszámot. Kérjük ellenőrizze az adatokat.',
+    'country'                       => 'Ország',
+    'edit'                          => 'Szerkesztés',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Írja be a szállítási címet.',
+    'fill_in_form'                  => 'töltse ki újból az űrlapot.',
+    'for_receiving_special_offers'  => 'Ahhoz hogy különleges ajánlatokról értesítéseket kapjon, kérjük írja be az email címét.',
+    'incorrect_email_msg'           => 'Kérem írjon be egy érvényes email címet',
+    'incorrect_name_msg'            => 'Kérem írja be a nevét',
+    'incorrect_phone_number_msg'    => 'Kérem írjon be egy érvényes telefonszámot',
+    'incorrect_target_geo_msg'      => 'Kérem válasszon egy szállítási országot',
+    'is_you_made_a_mistake'         => 'Ha elkövetett egy hibát az űrlap kitöltése közben, kérjük',
+    'name'                          => 'Név',
+    'name_is_undefined'             => 'Név nélkül',
+    'phone'                         => 'Telefonszám',
+    'send'                          => 'Elküldés',
+    'success_thanks_top_message'    => 'Egy operátorunk legtöbb egy munkanapon belül kapcsolatba fog lépni önnel.',
+    'thanks_bottom_message'         => 'Kérjük, kapcsolja be a telefonját.',
+    'title'                         => 'Köszönjük a rendelését!',
+    'update_order_data_error'       => 'A rendelés részleteinek frissítése sikertelen',
+    'update_order_data_success'     => 'A rendelés részletei sikeresen frissítve voltak',
+];

@@ -1,0 +1,32 @@
+<?php
+declare(strict_types=1);
+
+return [
+    'address'                       => 'Address',
+    'choose_country'                => 'Choose country',
+    'correct_thanks_top_message'    => 'Maybe you made a mistake when entering a phone number. Check your data.',
+    'country'                       => 'Country',
+    'edit'                          => 'Edit',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Enter the shipping address.',
+    'fill_in_form'                  => 'complete the form once again',
+    'for_receiving_special_offers'  => 'For getting special proposals please enter your e-mail',
+    'incorrect_email_msg'           => 'Please enter a valid email',
+    'incorrect_name_msg'            => 'Please indicate your name',
+    'incorrect_phone_number_msg'    => 'Please enter a valid phone number',
+    'incorrect_target_geo_msg'      => 'Please select a shipping country',
+    'is_you_made_a_mistake'         => 'If you made a mistake during completing this form, then, please,',
+    'name'                          => 'Name',
+    'name_is_undefined'             => 'No name',
+    'phone'                         => 'Phone',
+    'send'                          => 'Send',
+    'success_thanks_top_message'    => 'Our operator will contact you within one working day.',
+    'thanks_bottom_message'         => 'Please turn on your phone.',
+    'title'                         => 'Thank you for order!',
+    'update_order_data_error'       => 'Order details updating failed',
+    'update_order_data_success'     => 'Order details successfully updated',
+    'like_offer_q'                  => 'Did you like this offer?',
+    'back_call_text'                => 'We will tell you everything about this product, we will offer the best conditions and familiarize you with suitable promotional offers!',
+    'call_me'                       => 'Call me back',
+    'operator_call_you'             => 'The operator will call you back in 15-30 minutes',
+];

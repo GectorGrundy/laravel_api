@@ -1,0 +1,246 @@
+image: gitlab.hhdev.net:4567/affninja/docker.images/builder:latest
+services:
+- docker:dind
+
+variables:
+  GIT_STRATEGY: fetch
+
+stages:
+- prebuild
+- build
+
+#affninja
+prebuild-composer-prod:
+  stage: prebuild
+  only:
+    - master
+  cache:
+    key: ${CI_BUILD_REF_NAME}
+    paths:
+      - .composercache
+      - vendor
+  artifacts:
+    paths:
+      - vendor
+      - bootstrap/cache
+      - .env
+    expire_in: 30 mins
+  script:
+    - composer config cache-files-dir .composercache
+    - composer install
+    #keys & tokens
+    - sed -i "s#^\(APP_KEY\s*=\s*\).*\$#\1${APP_KEY}#" .env
+    - sed -i "s#^\(JWT_SECRET\s*=\s*\).*\$#\1${JWT_SECRET}#" .env
+    - sed -i "s#^\(MAIN_HASHIDS_KEY\s*=\s*\).*\$#\1${MAIN_HASHIDS_KEY}#" .env
+    - sed -i "s#^\(VISITOR_HASHIDS_KEY\s*=\s*\).*\$#\1${VISITOR_HASHIDS_KEY}#" .env
+    - sed -i "s#^\(INTEGRATION_HASHIDS_KEY\s*=\s*\).*\$#\1${INTEGRATION_HASHIDS_KEY}#" .env
+    - sed -i "s#^\(MAIL_DRIVER\s*=\s*\).*\$#\1${MAIL_DRIVER}#" .env
+    - sed -i "s#^\(MAILGUN_SECRET\s*=\s*\).*\$#\1${MAILGUN_SECRET}#" .env
+    - sed -i "s#^\(MAILGUN_DOMAIN\s*=\s*\).*\$#\1${MAILGUN_DOMAIN}#" .env
+    - sed -i "s#^\(SENTRY_DSN\s*=\s*\).*\$#\1${SENTRY_DSN}#" .env
+    - sed -i "s#^\(QUEUE_DRIVER\s*=\s*\).*\$#\1redis#" .env
+    #db
+    - sed -i "s#^\(DB_USERNAME\s*=\s*\).*\$#\1${DB_USERNAME}#" .env
+    - sed -i "s#^\(DB_DATABASE\s*=\s*\).*\$#\1${DB_DATABASE}#" .env
+    - sed -i "s#^\(DB_PASSWORD\s*=\s*\).*\$#\1${DB_PASSWORD}#" .env
+    #version & enviroment
+    - sed -i "s#^\(APP_VERSION\s*=\s*\).*\$#\1${CI_COMMIT_SHA:0:8}#" .env
+    - sed -i "s#^\(APP_ENV\s*=\s*\).*\$#\1production#" .env
+    #debug
+    - sed -i "s#^\(APP_DEBUG\s*=\s*\).*\$#\1false#" .env
+    - sed -i "s#^\(API_DEBUG\s*=\s*\).*\$#\1false#" .env
+    - sed -i "s#^\(SENTRY_DEBUG\s*=\s*\).*\$#\1true#" .env
+    - sed -i "s#^\(REPLACE_MY_IP\s*=\s*\).*\$#\1false#" .env
+    #domains & hosts
+    - sed -i "s#^\(MAIN_DOMAIN\s*=\s*\).*\$#\1affninja.com#" .env
+    - sed -i "s#^\(APP_URL\s*=\s*\).*\$#\1http://affninja.com#" .env
+    - sed -i "s#^\(API_HOST\s*=\s*\).*\$#\1http://api.affninja.com#" .env
+    - sed -i "s#^\(API_DOMAIN\s*=\s*\).*\$#\1api.affninja.com#" .env
+    - sed -i "s#^\(CDN_HOST\s*=\s*\).*\$#\1http://cdn.affninja.com#" .env
+    # integration
+    - sed -i "s#^\(FIRST_INTERGATION_DELAY\s*=\s*\).*\$#\15#" .env
+    - sed -i "s#^\(SECOND_INTERGATION_DELAY\s*=\s*\).*\$#\110#" .env
+    - sed -i "s#^\(THIRD_INTERGATION_DELAY\s*=\s*\).*\$#\115#" .env
+
+    # testing
+    #- vendor/bin/phpunit
+
+prebuild-yarn-prod:
+  stage: prebuild
+  only:
+    - master
+  cache:
+    key: ${CI_BUILD_REF_NAME}
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - public/js
+      - public/css
+    expire_in: 30 mins
+  script:
+    - yarn install
+    - yarn run production
+
+build-api-prod:
+  stage: build
+  only:
+    - master
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.hhdev.net:4567
+    - docker build -t gitlab.hhdev.net:4567/affninja/backend.affninja/api:latest . --file=./docker/Dockerfile.api --pull
+    - docker push gitlab.hhdev.net:4567/affninja/backend.affninja/api:latest
+
+build-go-prod:
+  stage: build
+  only:
+    - master
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.hhdev.net:4567
+    - docker build -t gitlab.hhdev.net:4567/affninja/backend.affninja/go:latest . --file=./docker/Dockerfile.go --pull
+    - docker push gitlab.hhdev.net:4567/affninja/backend.affninja/go:latest
+
+build-worker-prod:
+  stage: build
+  only:
+    - master
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.hhdev.net:4567
+    - docker build -t gitlab.hhdev.net:4567/affninja/backend.affninja/worker:latest . --file=./docker/Dockerfile.worker --pull
+    - docker push gitlab.hhdev.net:4567/affninja/backend.affninja/worker:latest
+
+build-cron-prod:
+  stage: build
+  only:
+    - master
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.hhdev.net:4567
+    - docker build -t gitlab.hhdev.net:4567/affninja/backend.affninja/cron:latest . --file=./docker/Dockerfile.cron --pull
+    - docker push gitlab.hhdev.net:4567/affninja/backend.affninja/cron:latest
+
+#aff1
+prebuild-composer-prod-aff1:
+  stage: prebuild
+  only:
+    - master-aff1
+  cache:
+    key: ${CI_BUILD_REF_NAME}
+    paths:
+      - .composercache
+      - vendor
+  artifacts:
+    paths:
+      - vendor
+      - bootstrap/cache
+      - .env
+    expire_in: 30 mins
+  script:
+    - composer config cache-files-dir .composercache
+    - composer install
+    #keys & tokens
+    - sed -i "s#^\(APP_KEY\s*=\s*\).*\$#\1${AFF1_APP_KEY}#" .env
+    - sed -i "s#^\(JWT_SECRET\s*=\s*\).*\$#\1${AFF1_JWT_SECRET}#" .env
+    - sed -i "s#^\(MAIN_HASHIDS_KEY\s*=\s*\).*\$#\1${AFF1_MAIN_HASHIDS_KEY}#" .env
+    - sed -i "s#^\(VISITOR_HASHIDS_KEY\s*=\s*\).*\$#\1${AFF1_VISITOR_HASHIDS_KEY}#" .env
+    - sed -i "s#^\(INTEGRATION_HASHIDS_KEY\s*=\s*\).*\$#\1${AFF1_INTEGRATION_HASHIDS_KEY}#" .env
+    - sed -i "s#^\(MAIL_DRIVER\s*=\s*\).*\$#\1${MAIL_DRIVER}#" .env
+    - sed -i "s#^\(MAILGUN_SECRET\s*=\s*\).*\$#\1${AFF1_MAILGUN_SECRET}#" .env
+    - sed -i "s#^\(MAILGUN_DOMAIN\s*=\s*\).*\$#\1${AFF1_MAILGUN_DOMAIN}#" .env
+    - sed -i "s#^\(SENTRY_DSN\s*=\s*\).*\$#\1${AFF1_SENTRY_DSN}#" .env
+    - sed -i "s#^\(FALLBACK_PUBLISHER_EMAIL\s*=\s*\).*\$#\1${AFF1_FALLBACK_PUBLISHER_EMAIL}#" .env
+    - sed -i "s#^\(FALLBACK_PUBLISHER_ID\s*=\s*\).*\$#\1${AFF1_FALLBACK_PUBLISHER_ID}#" .env
+    - sed -i "s#^\(FALLBACK_PUBLISHER_PASSWORD\s*=\s*\).*\$#\1${AFF1_FALLBACK_PUBLISHER_PASSWORD}#" .env
+    - sed -i "s#^\(FALLBACK_ADVERTISER_EMAIL\s*=\s*\).*\$#\1${AFF1_FALLBACK_ADVERTISER_EMAIL}#" .env
+    - sed -i "s#^\(FALLBACK_ADVERTISER_ID\s*=\s*\).*\$#\1${AFF1_FALLBACK_ADVERTISER_ID}#" .env
+    - sed -i "s#^\(FALLBACK_ADVERTISER_PASSWORD\s*=\s*\).*\$#\1${AFF1_FALLBACK_ADVERTISER_PASSWORD}#" .env
+    - sed -i "s#^\(ADMIN_EMAIL\s*=\s*\).*\$#\1${AFF1_ADMIN_EMAIL}#" .env
+    - sed -i "s#^\(ADMIN_PASSWORD\s*=\s*\).*\$#\1${AFF1_ADMIN_PASSWORD}#" .env
+    - sed -i "s#^\(QUEUE_DRIVER\s*=\s*\).*\$#\1redis#" .env
+    #db
+    - sed -i "s#^\(DB_USERNAME\s*=\s*\).*\$#\1${AFF1_DB_USERNAME}#" .env
+    - sed -i "s#^\(DB_DATABASE\s*=\s*\).*\$#\1${AFF1_DB_DATABASE}#" .env
+    - sed -i "s#^\(DB_PASSWORD\s*=\s*\).*\$#\1${AFF1_DB_PASSWORD}#" .env
+    #version & enviroment
+    - sed -i "s#^\(APP_VERSION\s*=\s*\).*\$#\1${CI_COMMIT_SHA:0:8}#" .env
+    - sed -i "s#^\(APP_ENV\s*=\s*\).*\$#\1production#" .env
+    #debug
+    - sed -i "s#^\(APP_DEBUG\s*=\s*\).*\$#\1false#" .env
+    - sed -i "s#^\(API_DEBUG\s*=\s*\).*\$#\1false#" .env
+    - sed -i "s#^\(SENTRY_DEBUG\s*=\s*\).*\$#\1true#" .env
+    - sed -i "s#^\(REPLACE_MY_IP\s*=\s*\).*\$#\1false#" .env
+    #domains & hosts
+    - sed -i "s#^\(MAIN_DOMAIN\s*=\s*\).*\$#\1aff1.com#" .env
+    - sed -i "s#^\(APP_URL\s*=\s*\).*\$#\1http://aff1.com#" .env
+    - sed -i "s#^\(API_HOST\s*=\s*\).*\$#\1http://api.aff1.com#" .env
+    - sed -i "s#^\(API_DOMAIN\s*=\s*\).*\$#\1api.aff1.com#" .env
+    - sed -i "s#^\(CDN_HOST\s*=\s*\).*\$#\1http://cdn.aff1.com#" .env
+    # integration
+    - sed -i "s#^\(FIRST_INTERGATION_DELAY\s*=\s*\).*\$#\15#" .env
+    - sed -i "s#^\(SECOND_INTERGATION_DELAY\s*=\s*\).*\$#\110#" .env
+    - sed -i "s#^\(THIRD_INTERGATION_DELAY\s*=\s*\).*\$#\115#" .env
+    #landing path
+    - sed -i "s#^\(LANDINGS_PATH\s*=\s*\).*\$#\1/var/www/landings#" .env
+    #google recaptcha
+    - sed -i "s#^\(GOOGLE_RECAPTCHA_SECRET\s*=\s*\).*\$#\1${AFF1_GOOGLE_RECAPTCHA_SECRET}#" .env
+    # Lang and config replacements
+    - sed -i "s#affninja.com#aff1.com#" config/app.php
+    - sed -i "s#affninja.com#aff1.com#" config/mail.php
+    - sed -i "s#Affninja.com#Aff1.com#" resources/lang/ru/messages.php
+    - sed -i "s#affninja.com#aff1.com#" app/Integrations/LoremIpsuma/LoremIpsumaValidateOrders.php
+    - sed -i "s#^\(MAIL_FROM\s*=\s*\).*\$#\no-reply@aff1.com#" .env
+    - sed -i "s#^\(MAIL_SENDER\s*=\s*\).*\$#\no-reply@aff1.com#" .env
+    # testing
+    #- vendor/bin/phpunit
+
+prebuild-yarn-prod-aff1:
+  stage: prebuild
+  only:
+    - master-aff1
+  cache:
+    key: ${CI_BUILD_REF_NAME}
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - public/js
+      - public/css
+    expire_in: 30 mins
+  script:
+    - yarn install
+    - yarn run production
+
+build-api-prod-aff1:
+  stage: build
+  only:
+    - master-aff1
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.hhdev.net:4567
+    - docker build -t gitlab.hhdev.net:4567/affninja/backend.affninja/api:latest_aff1 . --file=./docker/aff1/Dockerfile.api --pull
+    - docker push gitlab.hhdev.net:4567/affninja/backend.affninja/api:latest_aff1
+
+build-go-prod-aff1:
+  stage: build
+  only:
+    - master-aff1
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.hhdev.net:4567
+    - docker build -t gitlab.hhdev.net:4567/affninja/backend.affninja/go:latest_aff1 . --file=./docker/aff1/Dockerfile.go --pull
+    - docker push gitlab.hhdev.net:4567/affninja/backend.affninja/go:latest_aff1
+
+build-worker-prod-aff1:
+  stage: build
+  only:
+    - master-aff1
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.hhdev.net:4567
+    - docker build -t gitlab.hhdev.net:4567/affninja/backend.affninja/worker:latest_aff1 . --file=./docker/aff1/Dockerfile.worker --pull
+    - docker push gitlab.hhdev.net:4567/affninja/backend.affninja/worker:latest_aff1
+
+build-cron-prod-aff1:
+  stage: build
+  only:
+    - master-aff1
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.hhdev.net:4567
+    - docker build -t gitlab.hhdev.net:4567/affninja/backend.affninja/cron:latest_aff1 . --file=./docker/aff1/Dockerfile.cron --pull
+    - docker push gitlab.hhdev.net:4567/affninja/backend.affninja/cron:latest_aff1

@@ -1,0 +1,36 @@
+Запрос для получения статуса заявки
+~~
+http://api.webvork.com/v1/get-lead-status?token=c6e7f60e3c54232c8d47d33d21885406&guids[]=A4623B6A-9E26-4AD6-8596-7B0A6400CBA5&guids[]=E4B01C60-BFF7-472B-4099-A566A98799F9
+~~
+Пример ответа:
+~~
+[{
+"guid":"A4623B6A-9E26-4AD6-8596-7B0A6400CBA5",
+"stream_id":null,
+"created_ts":"2017-11-03 10:12:51",
+"offer_id":3,
+"ip":null,
+"country":null,
+"utm_source":"2",
+"utm_medium":"424",
+"utm_campaign":"553",
+"utm_content":"637",
+"status":"trash",
+"money":9,
+"currency":"EUR" 
+}, {
+"guid":"E4B01C60-BFF7-472B-4099-A566A98799F9",
+"stream_id":null,
+"created_ts":"2017-11-03 23:49:21",
+"offer_id":3,
+"ip":null,
+"country":null,
+"utm_source":"4",
+"utm_medium":"525",
+"utm_campaign":"186",
+"utm_content":"576",
+"status":"rejected",
+"money":4,
+"currency":"EUR" 
+}]
+~~

@@ -1,0 +1,28 @@
+<?php
+
+return [
+    ''                              => '',
+    'address'                       => 'Dirección',
+    'choose_country'                => 'Elige país',
+    'correct_thanks_top_message'    => 'Tal vez usted cometió un error al ingresar un número de teléfono. Compruebe sus datos.',
+    'country'                       => 'País',
+    'edit'                          => 'Redactar',
+    'email'                         => 'Email',
+    'fill_in_address'               => 'Introduzca la dirección de envío.',
+    'fill_in_form'                  => 'Rellenar el formulario una vez más',
+    'for_receiving_special_offers'  => 'Para obtener propuestas especiales, ingrese su e-mail',
+    'incorrect_email_msg'           => 'Por favor introduzca una dirección de correo electrónico válida',
+    'incorrect_name_msg'            => 'Indique su nombre',
+    'incorrect_phone_number_msg'    => 'Por favor ingrese un número de teléfono válido',
+    'incorrect_target_geo_msg'      => 'Seleccione un país de envío',
+    'is_you_made_a_mistake'         => 'Si usted cometió un error al llenar este formulario, entonces, por favor',
+    'name'                          => 'Nombre',
+    'name_is_undefined'             => 'Sin nombre',
+    'phone'                         => 'Teléfono',
+    'send'                          => 'Enviar',
+    'success_thanks_top_message'    => 'Nuestro operador se pondrá en contacto con usted en un día laborable.',
+    'thanks_bottom_message'         => 'Por favor, encienda su teléfono.',
+    'title'                         => 'Gracias por la orden!',
+    'update_order_data_error'       => 'Error en la actualización de los detalles del pedido',
+    'update_order_data_success'     => 'Detalles del pedido actualizados con éxito',
+];

@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'address'                       => 'Adres',
+    'choose_country'                => 'Kies land',
+    'correct_thanks_top_message'    => 'Misschien heeft u een fout gemaakt bij het invoeren van een telefoonnummer. Gelieve  uw gegevens te controleren',
+    'country'                       => 'Land',
+    'edit'                          => 'Bewerken',
+    'email'                         => 'E-mail',
+    'fill_in_address'               => 'Geef het verzendadres',
+    'fill_in_form'                  => 'formulier dan nogmaals in.',
+    'for_receiving_special_offers'  => 'Voer uw e-mail voor het verkrijgen van speciale aanbiedingen en promoties.',
+    'incorrect_email_msg'           => 'Geef een geldig e-mailadres',
+    'incorrect_name_msg'            => 'Geef uw naam',
+    'incorrect_phone_number_msg'    => 'Voer een geldig telefoonnummer',
+    'incorrect_target_geo_msg'      => 'Selecteer een land van verzending',
+    'is_you_made_a_mistake'         => 'Mocht u een vergissing gemaakt hebben tijdens het invullen van het formulier, vul het',
+    'name'                          => 'Naam',
+    'name_is_undefined'             => 'Geen naam',
+    'phone'                         => 'Telefoonnummer',
+    'send'                          => 'Sturen',
+    'success_thanks_top_message'    => 'Onze operator zal contact met u opnemen binnen één werkdag.',
+    'thanks_bottom_message'         => 'Gelieve uw telefoon aan te doen.',
+    'title'                         => 'Bedankt voor uw bestelling!',
+    'update_order_data_error'       => 'Orderinformatie bijwerken is misluktt',
+    'update_order_data_success'     => 'Orderinformatie bijgewerkt',
+];
